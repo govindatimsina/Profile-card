@@ -1,23 +1,31 @@
-import logo from './logo.svg';
+import { useState, useEffect } from 'react';
 import './App.css';
+import ProfileCard from './ProfileCard';
 
 function App() {
+  const[index, setIndex] = useState(0);
+  const[data, setData]=useState([""]);
+  
+  function handleIncrementor(){
+    setIndex(index+1);
+  }
+
+  useEffect(()=>{
+    getData();
+ },[]);
+ 
+  const getData = async ()=>{
+    const res = await fetch("https://jsonplaceholder.typicode.com/comments");
+    const actualData = await res.json();
+    setData(actualData);;
+  }
+ 
+ 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* {console.log(data)} */}
+      <button onClick={handleIncrementor}>Click</button>
+      <ProfileCard Id={data[index].id} Name={data[index].name} Email={data[index].email} Message={data[index].body}/>      
     </div>
   );
 }
