@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.mainbox{
+    display: flex;
+    justify-content:space-between;
+    text-align: left;
+    background-color: aqua;
+}
+.maincontainer{
+    margin: auto auto auto 1rem;
+}
+button{
+    width: fit-content;
+    padding: 0.2rem 1rem;
+    margin: auto;
+    font-size: 2rem;
+    cursor: pointer;
+    border: none;
+    color: white;
+}
+.prev{
+    background-color: red;
+}
+.next{
+    background-color: green;
+}
+img{
+    padding: 1rem;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+.imgcontainer{
+    display: flex;
+    justify-content: center;
+}
